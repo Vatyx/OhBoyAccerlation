@@ -8,7 +8,7 @@
 		<script>
 			window.addEventListener('devicemotion', function(event)
 			{
-				document.getElementById("acc").innerHTML = (int)event.acceleration.x + " " + (int)event.acceleration.y + " " + (int)event.acceleration.y;
+				document.getElementById("acc").innerHTML = Math.trunc(event.acceleration.x) + " " + Math.trunc(event.acceleration.y) + " " + Math.trunc(event.acceleration.y);
 				console.log(event.acceleration);
 			});
 		</script>
