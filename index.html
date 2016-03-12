@@ -5,7 +5,9 @@
 
 	<body>
 		<h1 id=acc>Hi there</h1>
+		<script src="/socket.io/socket.io.js"></script>
 		<script>
+			var socket = io();
 			// maximum absolute values reached so far
 			max_x = 0
 			max_y = 0 
@@ -18,6 +20,7 @@
 				max_z = Math.max(max_z, Math.abs(Math.trunc(event.acceleration.z)))
 				document.getElementById("acc").innerHTML = max_x + " " + max_y + " " + max_z;
 				console.log(event.acceleration);
+				socket.emit("message", max_x + " " + max_y + " " + max_z);
 			});
 		</script>
 	</body>
