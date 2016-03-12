@@ -6,9 +6,17 @@
 	<body>
 		<h1 id=acc>Hi there</h1>
 		<script>
+			// maximum absolute values reached so far
+			max_x = 0
+			max_y = 0 
+			max_z = 0
+			// update max values
 			window.addEventListener('devicemotion', function(event)
 			{
-				document.getElementById("acc").innerHTML = Math.trunc(event.acceleration.x) + " " + Math.trunc(event.acceleration.y) + " " + Math.trunc(event.acceleration.y);
+				max_x = Math.max(max_x, Math.abs(Math.trunc(event.acceleration.x)))
+				max_y = Math.max(max_y, Math.abs(Math.trunc(event.acceleration.y)))
+				max_z = Math.max(max_z, Math.abs(Math.trunc(event.acceleration.z)))
+				document.getElementById("acc").innerHTML = max_x + " " + max_y + " " + max_z;
 				console.log(event.acceleration);
 			});
 		</script>
