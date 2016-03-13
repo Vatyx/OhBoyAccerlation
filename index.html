@@ -22,8 +22,9 @@
 				console.log(event.acceleration);
 				//socket.emit("message", max_x + " " + max_y + " " + max_z);
 			});
-			window.addEventListner('touchstart', function(event)
+			window.addEventListener('touchstart', function(event)
 			{
+				console.log("message", "x: " + event.page.x + " y: " + event.page.y);
 				socket.emit("message", "x: " + event.page.x + " y: " + event.page.y)
 			});
 		</script>
