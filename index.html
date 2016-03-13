@@ -20,7 +20,11 @@
 				max_z = Math.max(max_z, Math.abs(Math.trunc(event.acceleration.z)))
 				document.getElementById("acc").innerHTML = max_x + " " + max_y + " " + max_z;
 				console.log(event.acceleration);
-				socket.emit("message", max_x + " " + max_y + " " + max_z);
+				//socket.emit("message", max_x + " " + max_y + " " + max_z);
+			});
+			window.addEventListner('touchstart', function(event)
+			{
+				socket.emit("message", "x: " + event.page.x + " y: " + event.page.y)
 			});
 		</script>
 	</body>
